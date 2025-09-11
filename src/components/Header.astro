@@ -1,0 +1,120 @@
+---
+
+interface HeaderProps {
+  visibleMenu: boolean
+}
+
+const { visibleMenu } = Astro.props as HeaderProps;
+
+---
+<nav class="w-full flex flex-row gap-3">
+  { (visibleMenu &&
+  <div class="md:hidden flex flex-row justify-end py-2.5 w-full">
+    <div class="flex flex-wrap items-center justify-end w-full">
+      <!-- Hamburger button -->
+      <button id="btn-burguer" aria-label="toggle" data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div class="hidden w-full" id="mobile-menu">
+        <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium w-full">
+          <li>
+              <a href="#experiences" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white">Experiencia Laboral</a></li>
+          <li>
+              <a href="#proyects" class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white">Proyectos</a></li>
+          <li>
+              <a href="#about" class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 dark:hover:text-white">Acerca de mi</a></li>
+          <li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  )}
+
+  <div class="hidden md:flex lg:flex-row lg:justify-END md:justify-end w-full gap-3 lg:gap-4">
+    {
+      (visibleMenu && 
+        <a href="#experiences" class="text-gray-700 dark:text-white dark:hover:text-gray-300 text-base lg:text-lg">Experiencia</a>
+        <a href="#proyects" class="text-gray-700 dark:text-white dark:hover:text-gray-300 text-base lg:text-lg">Proyectos</a>
+        <a href="#about" class="  text-gray-700  dark:text-white dark:hover:text-gray-300 text-base lg:text-lg">Acerca de mí</a>
+      )
+    }
+  
+    <button id="ToggleTheme" aria-label="theme" class=" text-gray-700 dark:text-white dark:hover:text-gray-300 text-base lg:text-lg hover:cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
+  </div>
+</nav>
+
+<script>
+  
+    function setTheme(){
+
+      const btnBurguer = document.getElementById('btn-burguer');
+      const MenuMobile = document.getElementById('mobile-menu');
+      const ToggleTheme = document.getElementById('ToggleTheme');
+      const html = document.querySelector('html');
+      const theme = localStorage.getItem('theme');
+      const htmlIconSun = '<svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+      const htmlIconMoon = '<svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon lucide-moon"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>';
+
+      if (theme) {
+        html?.classList.add(theme);
+      } else {
+        localStorage.setItem('theme','dark');
+        html?.classList.add('dark');
+      }
+
+      if(ToggleTheme){
+        console.log(htmlIconSun);
+        if(localStorage.getItem('theme') == 'dark'){
+          ToggleTheme.innerHTML = htmlIconSun;
+        }else{
+          ToggleTheme.innerHTML = htmlIconMoon;
+        }
+      }
+
+      if(btnBurguer && MenuMobile){
+
+        btnBurguer.addEventListener('click',(e) => {
+          if( btnBurguer.getAttribute('aria-expanded') == 'false'){
+            MenuMobile.classList.remove('hidden');
+            btnBurguer.setAttribute('aria-expanded','true');
+          }else{
+            MenuMobile.classList.add('hidden');
+            btnBurguer.setAttribute('aria-expanded','false');
+          }
+        })
+      }
+
+      if(ToggleTheme && html){
+         
+          ToggleTheme.addEventListener('click',(e) => {
+              console.log('por aqui');
+              ToggleTheme.innerHTML = "";
+
+              if(html.classList.contains('dark')){
+
+                html.classList.remove('dark');
+                html.classList.add('light');
+                localStorage.setItem('theme','light');
+                ToggleTheme.innerHTML = htmlIconMoon;
+              }else{
+                html.classList.remove('light');
+                html.classList.add('dark');
+                localStorage.setItem('theme','dark');
+                ToggleTheme.innerHTML = htmlIconSun;
+              }
+          })
+      }
+    }
+    
+    setTheme();
+
+    document.addEventListener('astro:after-swap', () => { 
+      setTheme();
+    });
+</script>

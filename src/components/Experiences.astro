@@ -1,0 +1,73 @@
+---
+
+const experiences = [
+    {
+        "work":' Virtual Office Group C.A',
+        "location": '(Maracay, Venezuela)',
+        "job": 'Desarrollador en AL, C# y tecnologías web',
+        "start": 'Agosto 2024',
+        "end": 'Actualmente',
+        "description": 'Responsable del diseño, desarrollo e implementación de extensiones para Microsoft Dynamics 365 Business Central, entre los mas relevante se encuentran el manejo de datos por reconocimiento de documentos. Además, participo activamente en la creación de aplicaciones web orientadas a la recolección, procesamiento y visualización de datos.',
+    },
+    {
+        "work":'Blickr LLC',
+        "location": '(Remoto) - (Miami,Estados Unidos)',
+        "job": 'Desarrollador en Wordpress y tecnologias web',
+        "start": 'Marzo 2022',
+        "end": 'Junio 2024',
+        "description": "Trabaje en el diseño y desarrollo de múltiples paginas web, tales como <a href='https://ve.phlebi.com/' class='text-blue-900 dark:text-blue-400' target='_blank'><b>Phlebi</b></a> (servicio médico en línea), <a href='https://printingmania.com/' class='text-blue-900 dark:text-blue-400' target='_blank'><b>Printing Mania</b></a> (Neones personalizado), y <a href='https://eventplanneronline.com/' class='text-blue-900 dark:text-blue-400' target='_blank'><b>Event Planner Online</b></a> (organización de eventos), entre otros. Participe en el desarrollo de <a href='https://squuad.com/' class='text-blue-900 dark:text-blue-400' target='_blank'><b>Squuad</b></a>, Una plataforma que presta el servicios como POS, creacion de tiendas online, sistema de contactos y agenda de eventos"
+    },
+    {
+        "work":'Soluciones BGM C.A',
+        "location": '(Maracay,Venezuela)',
+        "job": 'Desarrollador Web',
+        "start": 'Agosto 2019',
+        "end": 'Mayo 2021',
+        "description": 'Responsable del diseño y desarrollo integral de Homan, un sistema de control de marcajes implementado en diversas empresas de Venezuela. El proyecto incluyó la arquitectura del software, interfaz de usuario y funcionalidades específicas para entornos corporativos. Además, brindé soporte técnico personalizado y realicé instalaciones locales.',
+    },
+    {
+        "work":'BETABOX Technologies C.A',
+        "location": '(Maracay,Venezuela)',
+        "job": 'Desarrollador en C# Y tecnologias Web',
+        "start": 'Agosto 2019',
+        "end": 'Mayo 2021',
+        "description": "Responsable del desarrollo y despliegue de la página web <a href='https://web.archive.org/web/20230502030458/https://belt-g.com/' target='_blank'><b>belt-g</b></a> — (plataforma especializada en grifería, ferretería y accesorios para el hogar e industria). Adicionalmente, desarrollé extensiones personalizadas para el ERP Microsoft Dynamics GP, enfocadas en la gestión de línea de producción e importación automatizada de datos.",
+    },
+    {
+        "work":'Universidad Bicentenaria de Aragua',
+        "location": '(Turmero,Venezuela)',
+        "job": 'Soporte Tecnico y Atencion al usuario',
+        "start": 'Agosto 2014',
+        "end": 'Diciembre 2017',
+        "description": 'Desempeñé funciones en el área de soporte técnico dentro del departamento administrativo, incluyendo la elaboración de resúmenes e informes de asistencia, gestión de incidencias y apoyo operativo. Adicionalmente, participé en la estructuración e instalación de cableado de red y telefónico, asegurando la conectividad eficiente de los sistemas internos.',
+    },
+    
+]
+
+---
+
+
+<section id="experiences" class="flex flex-col w-full pt-12 md:pt-16 pb-8">
+    <h3 class="inline-flex items-center align-middle text-3xl font-bold gap-2"> 
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive-icon lucide-archive"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+        Experiencia Laboral
+    </h3>
+    <hr class="w-full border-t-2 border-gray-900 dark:border-gray-300 my-4" />
+    <section class="mt-4">
+        {
+            experiences.map((experience) => (
+                <article class="inline-flex flex-col w-full py-4 ">
+                    <h4 class="text-2xl dark:text-gray-300">{experience.work}</h4>
+                    <span class="text-normal font-medium text-gray-500 dark:text-gray-400">{experience.location}</span>
+                    <div class="flex flex-col md:flex-row justify-start w-full md:justify-between py-2 align-middle md:items-center">
+                        <h5 class="text-lg font-bold dark:font-semibold text-blue-900  dark:text-blue-400">{experience.job}</h5>
+                        <span class="text-base font-bold text-gray-900 italic dark:text-gray-100">{experience.start + ' - ' + experience.end}</span>
+                    </div>
+                    <p class="text-lg/relaxed  break-normal whitespace-normal font-normal text-pretty dark:text-gray-200 py-4">
+                        <Fragment set:html={experience.description} />
+                    </p>
+                </article>
+            ))
+        }
+    </section>
+</section>

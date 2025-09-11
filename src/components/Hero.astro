@@ -1,0 +1,23 @@
+---
+  import LinkContact from "./Link.astro"
+  import { Image } from 'astro:assets';
+  import ImgMain from '../assets/img/photo.webp';
+---
+
+<section class="pt-8 md:py-16 pb-4 md:pb-16 max-w-full">
+  <div class="flex flex-row px-4 justify-center md:justify-start">
+      <Image alt="Perfil" width="250" height="250"  src={ImgMain} alt="Alexander Rodriguez" class="inline-block  size-52 lg:size-42  rounded-full  object-cover border-5 border-gray-600 dark:border-5 dark:border-gray-800"  />
+  </div>
+  <div class="flex flex-col">
+      <h1 class="mb-5 text-3xl md:text-6xl text-center md:text-start mt-3 font-bold dark:text-white text-gray-800">
+          Alexander Rodriguez
+      </h1>
+      <h2 class="mb-5  md:mb-9 text-2xl md:text-4xl text-center md:text-start text-blue-600 dark:text-blue-300 font-bold tracking-tighter text-primary underline underline-offset-8">
+        Desarrollador Full-Stack
+      </h2>
+      <p class="mb-9 text-lg md:px-0 px-2 pros font-normal whitespace-normal text-pretty break-normal text-gray-700 dark:text-gray-300">
+        Con mas de 8 años de experiencia en el area de desarrollo web, diseño UI y desarrollo de aplicaciones empresariales.
+      </p>
+  </div>
+  <LinkContact curriculum={true} className="justify-start" size='md' />
+</section>

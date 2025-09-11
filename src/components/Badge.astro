@@ -1,0 +1,13 @@
+---
+
+interface BadgeProps{
+    color: string
+}
+
+const { color } = Astro.props as BadgeProps 
+
+---
+
+<span class={'inline-flex items-center rounded-xl px-2 py-1 text-xs font-medium text-gray-100 ' + color}>
+    <slot/>
+</span>
