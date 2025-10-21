@@ -3,34 +3,51 @@ import "@fontsource/inter";
 import "../styles/global.css";
 import logo from "../assets/img/logo.webp";
 
-import { ClientRouter} from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
 <html class="scroll-smooth" lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="Pagina web de Alexander Rodriguez, Desarrollador Full Stack con +8 de experiencias">
-		
-		<meta property="og:title" content="Alexander Rodriguez | Desarrollador Full-Stack">
-		<meta property="og:description" content="Explora el portafolio de Alexander Rodríguez: proyectos web, soluciones empresariales y experiencia en tecnologías como C#, AL, WordPress y Dynamics 365.">
-		<meta property="og:url" content={Astro.url.host}>
-		<meta property="og:type" content="website">
-		<meta property="og:image" content={logo.src}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta
+            name="description"
+            content="Pagina web de Alexander Rodriguez, Desarrollador Full Stack con +8 de experiencias"
+        />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Alexander Rodriguez | Desarrollador Full-Stack">
-		<meta name="twitter:description" content="Más de 8 años creando soluciones web, plataformas médicas, e-commerce y sistemas ERP personalizados.">
-		<meta name="twitter:image" content={logo.src}>
-		<meta name="generator" content={Astro.generator} />
-		<title>Alexander Rodriguez</title>
-		<ClientRouter />
-	</head>
-	<body>
-		<div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-auto scroll-smooth">
-			<slot />
-		</div>
-	</body>
+        <meta
+            property="og:title"
+            content="Alexander Rodriguez | Desarrollador Full-Stack"
+        />
+        <meta
+            property="og:description"
+            content="Explora el portafolio de Alexander Rodríguez: proyectos web, soluciones empresariales y experiencia en tecnologías como C#, AL, WordPress y Dynamics 365."
+        />
+        <meta property="og:url" content={Astro.url.host} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={logo.src} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Alexander Rodriguez | Desarrollador Full-Stack"
+        />
+        <meta
+            name="twitter:description"
+            content="Más de 8 años creando soluciones web, plataformas médicas, e-commerce y sistemas ERP personalizados."
+        />
+        <meta name="twitter:image" content={logo.src} />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/x-icon" href={logo.src} />
+        <title>Alexander Rodriguez</title>
+        <ClientRouter />
+    </head>
+    <body>
+        <div
+            class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-auto scroll-smooth"
+        >
+            <slot />
+        </div>
+    </body>
 </html>
-
