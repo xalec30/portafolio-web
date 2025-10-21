@@ -1,29 +1,66 @@
 ---
-  import { Image } from 'astro:assets';
-  import ImgMain from '../assets/img/photo.webp';
+import { Image } from "astro:assets";
+import ImgMain from "../assets/img/photo.webp";
 ---
 
 <section id="about" class="flex flex-col w-full pt-16 pb-8">
-     <h3 class="inline-flex items-center align-middle text-3xl font-bold gap-2"> 
-        <svg xmlns="http://www.w3.org/2000/svg" class="size-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <h3 class="inline-flex items-center align-middle text-3xl font-bold gap-2">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-8"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-user-icon lucide-user"
+            ><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle
+                cx="12"
+                cy="7"
+                r="4"></circle></svg
+        >
         Acerca de mi
     </h3>
     <hr class="w-full border-t-2 border-gray-900 dark:border-gray-300 mt-4" />
 
-    <div class="flex flex-col md:flex-row w-full align-middle justify-between my-8 ">
-        <div class="w-full  md:w-3/5 order-2 md:order-1 prose prose-base prose-p:dark:text-white">
+    <div
+        class="flex flex-col md:flex-row w-full align-middle justify-between my-8"
+    >
+        <div
+            class="w-full md:w-3/5 order-2 md:order-1 prose prose-base prose-p:dark:text-white"
+        >
             <p>
-                Mi nombre es <b>Alexander Rodríguez</b>, aunque muchos me conocen como <b>"Alex"</b>. Inicié mi camino en la programación desarrollando un sistema de compra de boletos en <b></b>Turbo Pascal</b>, lo que me permitió comprender la lógica estructurada en el desarrollo de software.
-            </p>
-            <p>
-               Actualmente me especializo en el <b>diseño y desarrollo de aplicaciones web y sistemas personalizados</b>, combinando experiencia técnica con enfoque en usabilidad, rendimiento y escalabilidad.
-            </p>
-            <p>
-               A lo largo de mi trayectoria he trabajado en proyectos que abarcan desde plataformas médicas y e-commerce hasta soluciones empresariales conectadas con ERPs como Microsoft Dynamics.
-            </p>
+                Mi nombre es <b>Alexander Rodríguez</b>, aunque muchos me
+                conocen como <b>"Alex"</b>. Inicié mi camino en la programación
+                desarrollando un sistema de compra de boletos en <b></b>Turbo
+                Pascal
+            </p>, lo que me permitió comprender la lógica estructurada en el
+            desarrollo de software.
         </div>
-        <div class="w-full md:w-2/5 inline-flex justify-center order-1 md:order-2 mb-8 md:mb-0">
-            <Image alt="Perfil" width="250" height="250"  src={ImgMain} alt="Alexander Rodriguez" class="inline-block size-60 rounded-lg  ring-gray-900 outline object-cover rotate-[3deg] border-8 border-gray-700 dark:border-gray-800 -outline-offset-1 outline-white/10" />
-        </div>
+        <p>
+            Actualmente me especializo en el <b
+                >diseño y desarrollo de aplicaciones web y sistemas
+                personalizados</b
+            >, combinando experiencia técnica con enfoque en usabilidad,
+            rendimiento y escalabilidad.
+        </p>
+        <p>
+            A lo largo de mi trayectoria he trabajado en proyectos que abarcan
+            desde plataformas médicas y e-commerce hasta soluciones
+            empresariales conectadas con ERPs como Microsoft Dynamics.
+        </p>
+    </div>
+    <div
+        class="w-full md:w-2/5 inline-flex justify-center order-1 md:order-2 mb-8 md:mb-0"
+    >
+        <Image
+            alt="Perfil"
+            width="250"
+            height="250"
+            src={ImgMain}
+            alt="Alexander Rodriguez"
+            class="inline-block size-60 rounded-lg ring-gray-900 outline object-cover rotate-[3deg] border-8 border-gray-700 dark:border-gray-800 -outline-offset-1 outline-white/10"
+        />
     </div>
 </section>
